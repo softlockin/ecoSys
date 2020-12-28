@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="EcoSstyle.css">
+    
+    <title>EcoS</title>
+</head>
+<body>
+
+    <div class="main">
+    <div class="first">
+        <h1>Skapa Faktura</h1>
+        <h2>Välj Kund</h2>
+        <select name="customerList" id="customerList"></select>
+    </div>
+    <div class="second">
+        <h2>Välj produkt</h2>
+        <section class="productSection" >
+            <select name="productList" id="productList"></select>
+            <input type="text" name="productName" class="productName" id="pID">
+            <input type="text" name="antal" class="amount">
+            <input type="text" name="hours" class="hours">
+            <input type="text" name="price" class="price">
+            <input type="text" name="total" class="total">
+            <a>+</a>
+            <a>-</a>
+        </section>
+
+    </div>
+    </div>
+
+    <script src="EcoScode.js"></script>
+</body>
+</html>
