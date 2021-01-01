@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="EcoSstyle.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
     
     <title>EcoS</title>
 </head>
@@ -13,19 +14,32 @@
     <div class="first">
         <h1>Skapa Faktura</h1>
         <h2>Välj Kund</h2>
-        <select name="customerList" id="customerList"></select>
+        <select name="customerList" id="customerList" class="customerList"> <option value="Välj något">Välj kund</option></select>
+
+        <section id="customerDetails">
+            <h1 class="customerName"></h1>
+        </section>
+
     </div>
     <div class="second">
         <h2>Välj produkt</h2>
         <section class="productSection" >
-            <select name="productList" id="productList"></select>
-            <input type="text" name="productName" class="productName" id="pID">
-            <input type="text" name="antal" class="amount">
-            <input type="text" name="hours" class="hours">
-            <input type="text" name="price" class="price">
-            <input type="text" name="total" class="total">
-            <a>+</a>
-            <a>-</a>
+            <select name="productList" id="productList" class="productList">
+                <option class="productOption" value="Välj produkt">Välj Produkt</option>
+            </select>
+            <input type="text" name="productName" class="productName" id="pID" placeholder="Produktnamn">
+            <input type="text" name="antal" class="amount" placeholder="Antal">
+            <input type="text" name="hours" class="hours" placeholder="Timmar">
+            <input type="text" name="price" class="price" placeholder="Pris" >
+            <input type="text" name="total" class="vat" placeholder="Moms">
+            <input type="text" name="total" class="sum" placeholder="Total">
+            <a class="plus">+</a>
+            <a class="minus">-</a>
+        </section>
+        <section class="sumSection">
+
+            <h3>Summa: </h3><p class="totalSum"></p>
+
         </section>
 
     </div>

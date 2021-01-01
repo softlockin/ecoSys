@@ -1,2 +1,14 @@
 * { box-sizing: border-box; }
 
+
+
+
+
+
+
+.amount { width: 3%; }
+.hours { width: 4%; }
+.price { width: 5%; }
+.vat { width: 5%;}
+.sum { width: 10%; }
+.plus { cursor: pointer; }
