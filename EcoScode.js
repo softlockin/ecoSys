@@ -68,34 +68,6 @@ function setProductDetails(){
 }
 
 
-function addRow(){
-
-    let btn = document.querySelectorAll(".plus");
-
-    for (let b of btn ){
-
-        b.addEventListener("click",function(){
-        b.nextElementSibling.insertAdjacentHTML("afterend",`
-        <br><select name="productList" id="productList" class="productList">
-                <option class="productOption" value="Välj produkt">Välj Produkt</option>
-            </select>
-            <input type="text" name="productName" class="productName" id="pID" placeholder="Produktnamn">
-            <input type="text" name="antal" class="amount" placeholder="Antal">
-            <input type="text" name="hours" class="hours" placeholder="Timmar">
-            <input type="text" name="price" class="price" placeholder="Pris" >
-            <input type="text" name="total" class="vat" placeholder="Moms">
-            <input type="text" name="total" class="sum" placeholder="Total">
-            <a class="plus">+</a>
-            <a class="minus">-</a>
-        `)
-    })
-    }
-}
-
-
-
-
-
 
 // Chose from the list and generate the right details
 function getCustomerDetails(){
@@ -130,4 +102,3 @@ populateCustomerList();
 getCustomerDetails();
 populateProductList();
 setProductDetails();
-addRow();
