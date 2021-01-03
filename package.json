@@ -1,8 +1,7 @@
 {
   "name": "fakturasystem",
   "version": "1.0.0",
-  "description": "",
-  "main": "EcoScode.js",
+  "main": "backend.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -18,5 +17,7 @@
   "homepage": "https://github.com/cfossto/ecoSys#readme",
   "dependencies": {
     "express": "^4.17.1"
-  }
+  },
+  "devDependencies": {},
+  "description": ""
 }

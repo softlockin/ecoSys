@@ -1,8 +1,3 @@
-const express = require('express');
-
-
-
-
 
 let products = [
     
@@ -98,8 +93,6 @@ function getCustomerDetails(){
         }
     })
 }
-
-
 
 
 populateCustomerList();
