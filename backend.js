@@ -11,7 +11,6 @@ app.use(express.static(__dirname))
 app.get("/", (res,req)=> {
 
     req.sendFile("/index.html", {root: __dirname});
-
 })
 
 
