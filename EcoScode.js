@@ -35,6 +35,15 @@ let customers =[
 ]
 
 
+function menuAdd(){
+
+    let b = document.querySelector("body");
+
+    b.insertAdjacentHTML("afterbegin",` <header class="flex-container"><a href="/">Skapa Faktura</a><a href="/customers.html">Ny kund</a><a href="/products.html">Produkter</a><a href="reports.html">Rapporter</a></header>`)
+
+
+
+}
 
 function populateCustomerList(){
     
@@ -95,6 +104,7 @@ function getCustomerDetails(){
 }
 
 
+menuAdd();
 populateCustomerList();
 getCustomerDetails();
 populateProductList();
