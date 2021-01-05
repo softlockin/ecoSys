@@ -39,7 +39,7 @@ function menuAdd(){
 
     let b = document.querySelector("body");
 
-    b.insertAdjacentHTML("afterbegin",` <header class="flex-container"><a href="/">Skapa Faktura</a><a href="/customers.html">Ny kund</a><a href="/products.html">Produkter</a><a href="reports.html">Rapporter</a></header>`)
+    b.insertAdjacentHTML("afterbegin",` <header class="flex-container"><a href="/">Skapa Faktura</a><a href="/customers.html">Kunder</a><a href="/products.html">Produkter</a><a href="reports.html">Rapporter</a></header>`)
 
 
 
@@ -59,22 +59,25 @@ function populateProductList(){
     let productList = document.querySelector(".productList");
 
     for (product of products){
-        productList.insertAdjacentHTML("beforeend",`<option>${product.productName}</option>`)
+        productList.insertAdjacentHTML("beforeend",`<option id="${product.id}" class="choices" >${product.productName}</option>`)
     }
 
 }
 
 function setProductDetails(){
 
-    let focusProductList = document.querySelector(".productList");
+    let choices = document.querySelectorAll(".choices")
+    let choice = document.querySelector(".productList")
 
-    focusProductList.addEventListener("change", function (){
+    choice.addEventListener("click", function () {
 
+    
+    for (let c of choice){
+        console.log(c)
+    }
 
-
-    })
+})
 }
-
 
 
 // Chose from the list and generate the right details
