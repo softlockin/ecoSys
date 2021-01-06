@@ -34,16 +34,19 @@ let customers =[
 
 ]
 
+let totals = []
+
+
 
 function menuAdd(){
 
     let b = document.querySelector("body");
 
-    b.insertAdjacentHTML("afterbegin",` <header class="flex-container"> <h1>EcoS - Fakturasystem</h1> <!--- <a href="/">Skapa Faktura</a><a href="/customers.html">Kunder</a><a href="/products.html">Produkter</a><a href="reports.html">Rapporter</a> ---></header>`)
-
+    b.insertAdjacentHTML("afterbegin",` <header class="flex-container"> <h1>EcoS - Fakturasystem</h1> <!--- <a href="/">Skapa Faktura</a><a href="/customers.html">Kunder</a><a href="/products.html">Produkter</a><a href="reports.html">Rapporter</a> ---></header> `)
 
 
 }
+
 
 function populateCustomerList(){
     
@@ -65,6 +68,8 @@ function populateProductList(){
     }
 
 }
+
+
 
 // Not done. Product detail function, auto load
 function setProductDetails(){
@@ -126,26 +131,84 @@ function getCustomerDetails(){
 
 function addRow(){
 
-    let btn = document.querySelectorAll(".plus")
-    let row = document.querySelector()
+    let rows = document.querySelectorAll(".plusDiv")
 
-    btn.addEventListener("click", ()=>{
+        for (let row of rows){
 
-        alert("hej")
+            row.insertAdjacentHTML("afterend",`
         
-        
+            <div class="plusDiv">
+             <input type="text" name="productName" class="productName" id="pID" placeholder="Produktnamn">
+             <input type="text" name="antal" class="amount" placeholder="Antal">
+             <input type="text" name="hours" class="hours" placeholder="Timmar">
+             <input type="text" name="price" class="price" placeholder="Pris" >
+             <select>
+                 <option value="VAT">Moms</option>
+                 <option value="25">25%</option>
+                 <option value="12">12%</option>
+                 <option value="6">6%</option>
+             </select>
+              <input type="text" name="total" class="sum" placeholder="Total">
+              <a class="plus">+</a>
+              <a class="minus">-</a></div>
+
+        `)
+        break
+    }
+}
+
+
+
+function deleteRow() {
+
+    
+    $(document).on("click",".minus", ()=>{
+
+        let elem = $(event.target)
+        elem.parent().remove()
     })
 
+
 }
 
 
 
-function sendToInvoice() {    
+function clickFunctionality() {
+    
+    $(document).on('click',".plus", function(){
+        addRow();
+    })
+
+    deleteRow()
+
 }
+
+
+function sumTotal() {
+
+    let sums = document.querySelectorAll(".sum")
+
+    for (let sum of sums){
+
+        sum.addEventListener("keyup", ()=>{
+
+
+            if (sum.value != ""){
+            console.log(sum.value)
+
+            }
+        })
+
+    }
+}
+
+
+
+
+
 
 
 
 menuAdd();
-populateCustomerList();
-getCustomerDetails();
-addRow();
+clickFunctionality();
+sumTotal()

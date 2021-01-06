@@ -12,11 +12,17 @@
 <body>
     <div class="main">
     <div class="first">
-        <h2>Välj Kund</h2>
-        <select name="customerList" id="customerList" class="customerList"> <option value="Välj något">Välj kund</option></select>
+        <section class="customerDetails">
+        <h2>Kund-uppgifter</h2>
+        <!-- <select name="customerList" id="customerList" class="customerList"> <option value="Välj något">Välj kund</option></select> --->
 
-        <section id="customerDetails">
-            <h1 class="customerName"></h1>
+        <input type="text" name="customerName" id="customerName" placeholder="Kundnamn">
+        <input type="text" name="customerContactName" id="customerContactName" placeholder="Referensperson">
+        <input type="text" name="customerStreetAddress" id="customerStreetAddress" placeholder="Gatuaddress">
+        <input type="text" name="customerCity" id="customerCity" placeholder="Stad">
+        <input type="text" name="customerId" id="customerId" placeholder="Kundnummer">
+
+
         </section>
 
     </div>
@@ -31,7 +37,7 @@
             <input type="text" name="antal" class="amount" placeholder="Antal">
             <input type="text" name="hours" class="hours" placeholder="Timmar">
             <input type="text" name="price" class="price" placeholder="Pris" >
-            <select>
+            <select class="moms">
                 <option value="VAT">Moms</option>
                 <option value="25">25%</option>
                 <option value="12">12%</option>
@@ -40,7 +46,6 @@
             <!-- <input type="text" name="total" class="vat" placeholder="Moms"> --->
             <input type="text" name="total" class="sum" placeholder="Total">
             <a class="plus">+</a>
-            <a class="minus">-</a></div>
         </section>
         <section class="textarea" ><textarea name="Comments" id="comments" cols="30" rows="10" placeholder="Kommentarer"></textarea></section>
         <section class="sumSection">

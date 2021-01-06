@@ -11,10 +11,13 @@ header {  display: flex; flex-direction: row; justify-content:space-evenly; back
 
 .main { margin-left: 15%; margin-top: 5%; }
 
-p { display: flex; flex-direction: row; }
+p {  }
 
-.amount { width: 3%; }
-.hours { width: 4%; }
+.customerDetails { display: flex; flex-direction: column; width: 25em; }
+
+
+.amount { width: 5%; }
+.hours { width: 5%; }
 .price { width: 5%; }
 .vat { width: 5%;}
 .sum { width: 10%; }
@@ -22,4 +25,4 @@ p { display: flex; flex-direction: row; }
 
 .textarea { margin-top: 3%; }
 
-.totalSum { display: flex; justify-content: end; }
+.totalSum { display: flex; }
