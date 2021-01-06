@@ -4,7 +4,7 @@ a, a:hover, h1,h2,h3,p { font-family: 'Rubik', sans-serif;}
 a, a:hover { font-size:xx-large; text-decoration: underline; font-weight: bold; cursor: pointer; color: rgb(255, 255, 255); }
 a:hover { color: red; }
 
-h1 { margin-left: 10%; }
+h1 { margin-left: 10%; color: white;}
 
 
 header {  display: flex; flex-direction: row; justify-content:space-evenly; background-color:rgb(53, 120, 143); background-blend-mode: difference; padding:4%; }
@@ -20,5 +20,6 @@ p { display: flex; flex-direction: row; }
 .sum { width: 10%; }
 .plus, .plus:hover, .minus, .minus:hover { cursor: pointer; color: black; text-decoration: none; font-size: medium; }
 
+.textarea { margin-top: 3%; }
 
 .totalSum { display: flex; justify-content: end; }

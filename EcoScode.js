@@ -39,7 +39,7 @@ function menuAdd(){
 
     let b = document.querySelector("body");
 
-    b.insertAdjacentHTML("afterbegin",` <header class="flex-container"><a href="/">Skapa Faktura</a><a href="/customers.html">Kunder</a><a href="/products.html">Produkter</a><a href="reports.html">Rapporter</a></header>`)
+    b.insertAdjacentHTML("afterbegin",` <header class="flex-container"> <h1>EcoS - Fakturasystem</h1> <!--- <a href="/">Skapa Faktura</a><a href="/customers.html">Kunder</a><a href="/products.html">Produkter</a><a href="reports.html">Rapporter</a> ---></header>`)
 
 
 
@@ -54,30 +54,48 @@ function populateCustomerList(){
     }
 }
 
+// productlist-function for future release
+
 function populateProductList(){
 
     let productList = document.querySelector(".productList");
 
     for (product of products){
-        productList.insertAdjacentHTML("beforeend",`<option id="${product.id}" class="choices" >${product.productName}</option>`)
+        productList.insertAdjacentHTML("beforeend",`<option value="${product.id}" class="choices" >${product.productName}</option>`)
     }
 
 }
 
+// Not done. Product detail function, auto load
 function setProductDetails(){
 
+    let lists = document.querySelectorAll(".productList")
     let choices = document.querySelectorAll(".choices")
-    let choice = document.querySelector(".productList")
 
-    choice.addEventListener("click", function () {
 
-    
-    for (let c of choice){
-        console.log(c)
+    for (let list of lists){
+
+        list.addEventListener("change", ()=>{
+
+            for (let choice of choices){
+
+                console.log(choice.attributes.id)
+        
+            }
+
+            let index = list.selectedIndex-1
+            console.log(index)
+
+
+
+
+        })
+
     }
 
-})
+
 }
+
 
 
 // Chose from the list and generate the right details
@@ -106,9 +124,27 @@ function getCustomerDetails(){
     })
 }
 
+function addRow(){
+
+    let btn = document.querySelectorAll(".plus")
+    let row = document.querySelector()
+
+    btn.addEventListener("click", ()=>{
+
+        
+        
+    })
+
+}
+
+
+
+function sendToInvoice() {    
+}
+
+
 
 menuAdd();
 populateCustomerList();
 getCustomerDetails();
-populateProductList();
-setProductDetails();
+addRow();

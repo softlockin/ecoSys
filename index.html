@@ -21,25 +21,33 @@
 
     </div>
     <div class="second">
-        <h2>Välj produkt</h2>
+        <h2>Produkter/Tjänster</h2>
         <section class="productSection" >
-           <div class="plusDiv"> <select name="productList" id="productList" class="productList">
-                <option class="productOption" value="Välj produkt">Välj Produkt</option>
-            </select>
+           <div class="plusDiv">
+            <!-- <select name="productList" id="productList" class="productList">
+                   <option class="productOption" value="Välj produkt">Välj Produkt</option>
+                </select> --->
             <input type="text" name="productName" class="productName" id="pID" placeholder="Produktnamn">
             <input type="text" name="antal" class="amount" placeholder="Antal">
             <input type="text" name="hours" class="hours" placeholder="Timmar">
             <input type="text" name="price" class="price" placeholder="Pris" >
-            <input type="text" name="total" class="vat" placeholder="Moms">
+            <select>
+                <option value="VAT">Moms</option>
+                <option value="25">25%</option>
+                <option value="12">12%</option>
+                <option value="6">6%</option>
+            </select>
+            <!-- <input type="text" name="total" class="vat" placeholder="Moms"> --->
             <input type="text" name="total" class="sum" placeholder="Total">
             <a class="plus">+</a>
             <a class="minus">-</a></div>
         </section>
+        <section class="textarea" ><textarea name="Comments" id="comments" cols="30" rows="10" placeholder="Kommentarer"></textarea></section>
         <section class="sumSection">
 
             <h3>Summa: </h3><p class="totalSum"></p>
-
         </section>
+        <section><button onclick="sendToInvoice()">Gör faktura</button></section>
 
     </div>
     </div>
