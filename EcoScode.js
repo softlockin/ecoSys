@@ -191,18 +191,37 @@ function sumTotal() {
     for (let sum of sums){
 
         sum.addEventListener("keyup", ()=>{
-
-
             if (sum.value != ""){
             console.log(sum.value)
-
             }
         })
-
     }
 }
 
 
+
+
+
+function sendToInvoice() {
+
+    let customerName = $("#customerName").val()
+    let customerContact = $("#customerContactName").val()
+    let customerAddress = $("#customerStreetAddress").val()
+    let city = $("#customerCity").val()
+    let customerId = $("#customerId").val()
+
+    customerDetails = [ {
+
+        custName: `${customerName}`,
+        custContact: `${customerContact}`,
+        custAddress: `${customerAddress}`,
+        custCity: `${city}`,
+        custId: `${customerId}`
+
+     }]
+
+     console.log(customerDetails)
+}
 
 
 
