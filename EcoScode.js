@@ -131,6 +131,7 @@ function addRow(){
 
     btn.addEventListener("click", ()=>{
 
+        alert("hej")
         
         
     })
