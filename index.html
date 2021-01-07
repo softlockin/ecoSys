@@ -34,7 +34,7 @@
                    <option class="productOption" value="Välj produkt">Välj Produkt</option>
                 </select> --->
             <input type="text" name="productName" class="productName" id="pID" placeholder="Produktnamn">
-            <input type="text" name="antal" class="amount" placeholder="Antal">
+            <input type="text" id="antal" name="antal" class="amount" placeholder="Antal">
             <input type="text" name="hours" class="hours" placeholder="Timmar">
             <input type="text" name="price" class="price" placeholder="Pris" >
             <select class="moms">
@@ -47,16 +47,24 @@
             <input type="text" name="total" class="sum" placeholder="Total">
             <a class="plus">+</a>
         </section>
-        <section class="textarea" ><textarea name="Comments" id="comments" cols="30" rows="10" placeholder="Kommentarer"></textarea></section>
+        <section class="textarea" >
+            <textarea name="Comments" id="comments" cols="30" rows="10" placeholder="Kommentarer"></textarea><br>
+            <h2>Betalningsvillkor</h2>
+            <input type="text" name="paytime" id="payTime" placeholder="Betalningsvillkor">
+        </section>
         <section class="sumSection">
 
             <h3>Summa: </h3><p class="totalSum"></p>
         </section>
-        <section><button onclick="sendToInvoice()">Gör faktura</button></section>
+        <section>
+            <button onclick="sendToInvoice()">Gör faktura</button></section>
 
     </div>
     </div>
 
     <script src="EcoScode.js" defer></script>
 </body>
+
+
+
 </html>

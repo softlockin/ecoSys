@@ -36,6 +36,7 @@ let customers =[
 
 let totals = []
 
+let sendList = []
 
 
 function menuAdd(){
@@ -135,7 +136,7 @@ function addRow(){
 
         for (let row of rows){
 
-            row.insertAdjacentHTML("afterend",`
+            row.insertAdjacentHTML("beforeend",`
         
             <div class="plusDiv">
              <input type="text" name="productName" class="productName" id="pID" placeholder="Produktnamn">
@@ -184,20 +185,42 @@ function clickFunctionality() {
 }
 
 
-function sumTotal() {
+function getProductDetails(){
 
-    let sums = document.querySelectorAll(".sum")
+    let allProducts = $(".plusDiv").toArray()
 
-    for (let sum of sums){
+    
+    for (let product of allProducts){
 
-        sum.addEventListener("keyup", ()=>{
-            if (sum.value != ""){
-            console.log(sum.value)
-            }
-        })
+        let productId = product.children[0].value
+        let amount = product.children[1].value
+        let hours = product.children[2].value
+        let price = product.children[3].value
+        let VAT = product.children[4].value
+        let sum = product.children[5].value
+
+        let obj = { 
+            productId: productId,
+            amount: amount,
+            hours: hours,
+            price: price,
+            VAT: VAT,
+            sum: sum
+         }
+
+         sendList.push(obj)
+
     }
-}
+    
+    let comment = $("#comments").val()
+    let payDay = $("#payTime").val()
 
+    let additional = { comment: comment }
+    sendList.push(additional)
+
+    console.log(sendList)
+
+}
 
 
 
@@ -209,19 +232,32 @@ function sendToInvoice() {
     let customerAddress = $("#customerStreetAddress").val()
     let city = $("#customerCity").val()
     let customerId = $("#customerId").val()
+    let betalningsvillkor = $("#payTime").val()
 
-    customerDetails = [ {
+    customerDetails = {
+        customerName: customerName,
+        customerContact: customerContact,
+        customerAddress: customerAddress,
+        city: city,
+        customerId: customerId,
+        betalningsvillkor: betalningsvillkor
+    }
 
-        custName: `${customerName}`,
-        custContact: `${customerContact}`,
-        custAddress: `${customerAddress}`,
-        custCity: `${city}`,
-        custId: `${customerId}`
 
-     }]
 
-     console.log(customerDetails)
+    // Reset fields
+    $("#customerName").val("")
+    $("#customerContactName").val("")
+    $("#customerStreetAddress").val("")
+    $("#customerCity").val("")
+    $("#customerId").val("")
+
+    console.log(customerDetails)
+
+    getProductDetails();
+
 }
+
 
 
 
@@ -230,4 +266,10 @@ function sendToInvoice() {
 
 menuAdd();
 clickFunctionality();
-sumTotal()
+
+
+
+
+
+
+// Grattis på 60-årsdagen pappa!
