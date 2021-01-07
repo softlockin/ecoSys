@@ -26,4 +26,7 @@ header {  display: flex; flex-direction: row; justify-content:space-evenly; back
 
 .textarea { margin-top: 3%; }
 
-.totalSum { display: flex; }
+#comments { width: 48%; height: 80px; }
+
+
+#doBtn { margin-top: 5%; }
