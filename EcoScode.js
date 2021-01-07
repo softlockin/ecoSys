@@ -225,7 +225,7 @@ function getProductDetails(){
 
 
 
-function sendToInvoice() {
+function getAllCustomerDetails() {
 
     let customerName = $("#customerName").val()
     let customerContact = $("#customerContactName").val()
@@ -242,8 +242,18 @@ function sendToInvoice() {
         customerId: customerId,
         betalningsvillkor: betalningsvillkor
     }
+}
+
+function invoiceClick(){
+
+    getAllCustomerDetails();
+    getProductDetails();
+    resetFields()
+
+}
 
 
+function resetFields() {
 
     // Reset fields
     $("#customerName").val("")
@@ -251,16 +261,13 @@ function sendToInvoice() {
     $("#customerStreetAddress").val("")
     $("#customerCity").val("")
     $("#customerId").val("")
-
-    console.log(customerDetails)
-
-    getProductDetails();
-
+    $(".productName").val("")
+    $(".amount").val("")
+    $(".hours").val("")
+    $(".price").val("")
+    $(".sum").val("")
+    
 }
-
-
-
-
 
 
 
