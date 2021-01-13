@@ -242,6 +242,7 @@ function getAllCustomerDetails() {
         customerId: customerId,
         betalningsvillkor: betalningsvillkor
     }
+    console.log(customerDetails)
 }
 
 function invoiceClick(){
@@ -266,7 +267,8 @@ function resetFields() {
     $(".hours").val("")
     $(".price").val("")
     $(".sum").val("")
-    
+    $("#comments").val("")
+    $("#payTime").val("")
 }
 
 
