@@ -37,6 +37,23 @@ let totals = []
 
 let sendList = []
 
+let p_listtmp = [{ 
+    productId: 23,
+    productName: "Schampo",
+    amount: 2,
+    hours: 5,
+    price: 500,
+    VAT: 25
+ },
+ { 
+    productId: 23,
+    productName: "Annat",
+    amount: 2,
+    hours: 5,
+    price: 500,
+    VAT: 25
+ }]
+
 let sendListtmp = [
 
     {customerName: "Företaget",
@@ -44,6 +61,17 @@ let sendListtmp = [
     customerCity: "Staden",
     customerContact: "Personen"}
 ]
+
+let owner_details = {
+
+    companyName: "Stephans Transport i Staffanstorp",
+    owner: "Stefan Östlund",
+    regNr: "123456-1234",
+    address: "Åkershus 60",
+    zipCode: "245 31",
+    city: "Staffanstorp"
+
+}
 
 
 function menuAdd(){
@@ -267,16 +295,50 @@ function make_pdf() {
 
     let docDefinition = {
 
-        header: [{text: "Faktura", margin: [40,20] }],
+        header: [{text: "Faktura", margin: [55,20] }],
         content: [
-            {text: "Stephans Transport i Staffanstorp", bold: "True", fontSize: "30"},
-            {text: `${sendListtmp[0].customerName}`},
-            {text: `${sendListtmp[0].customerAddress}`},
-            {text: `${sendListtmp[0].customerCity}`},
-            {text: `${sendListtmp[0].customerContact}`},
-        
-        ] 
+                    {margin: [20,30], text: `${owner_details.companyName}`, bold: "True", fontSize: "30"},
+                    { columns: [
+                            {style: "address",
+                            text: `${sendListtmp[0].customerName}
+
+                                    ${sendListtmp[0].customerAddress}
+                                    ${sendListtmp[0].customerCity}
+                                    Er referens: ${sendListtmp[0].customerContact} \n `},
+                            
+                                    {style: "address",
+                                    text: `${owner_details.companyName}
+
+                                    ${owner_details.address}
+                                    ${owner_details.zipCode}
+                                    ${owner_details.city} ` }    
+        ]}],
+    
+        styles: {
+
+            address: { width: "35%", margin: [45,30,25,50]},
+            product_list: { alignment: "justify", margin: [55,70] }
+
+
+        }
+
+    }                       
+
+                
+    
+
+    for (let i = 0; i<p_listtmp.length; i++ ){
+
+
+        docDefinition.content.push({
+
+            style: "product_list",
+            table:  { body: [[`${p_listtmp[i].productId} ${p_listtmp[i].productName} Antal: ${p_listtmp[i].amount}`+
+            ` Tid: ${p_listtmp[i].hours} Pris: ${p_listtmp[i].price}`]]}
+
+        })
     }
+
     pdfMake.createPdf(docDefinition).open()
     
 }
@@ -297,6 +359,7 @@ function resetFields() {
     $(".sum").val("")
     $("#comments").val("")
     $("#payTime").val("")
+
 
 }
 
