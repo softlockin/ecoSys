@@ -1,5 +1,3 @@
-
-
 let products = [
     
     { 
@@ -38,6 +36,14 @@ let customers =[
 let totals = []
 
 let sendList = []
+
+let sendListtmp = [
+
+    {customerName: "Företaget",
+    customerAddress: "Gatan",
+    customerCity: "Staden",
+    customerContact: "Personen"}
+]
 
 
 function menuAdd(){
@@ -209,7 +215,7 @@ function getProductDetails(){
             sum: sum
          }
 
-         sendList.push(obj)
+        sendList.push(obj)
 
     }
     
@@ -219,10 +225,7 @@ function getProductDetails(){
     let additional = { comment: comment }
     sendList.push(additional)
 
-    console.log(sendList)
-
 }
-
 
 
 
@@ -243,27 +246,39 @@ function getAllCustomerDetails() {
         customerId: customerId,
         betalningsvillkor: betalningsvillkor
     }
-    console.log(customerDetails)
+    sendList.push(customerDetails)
+
 }
 
-pdfMake.fonts = {
-Roboto: {
-    normal: 'https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.66/fonts/Roboto/Roboto-Regular.ttf',
-    bold: 'https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.66/fonts/Roboto/Roboto-Medium.ttf',
-    italics: 'https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.66/fonts/Roboto/Roboto-Italic.ttf',
-    bolditalics: 'https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.66/fonts/Roboto/Roboto-MediumItalic.ttf'
-  }
-}
-let docDefinition = { content: "Test" }
 
 function invoiceClick(){
 
     getAllCustomerDetails();
     getProductDetails();
-
-    make_pdf(docDefinition)
+    
+    make_pdf()
     resetFields()
 
+}
+
+
+
+function make_pdf() {
+
+    let docDefinition = {
+
+        header: [{text: "Faktura", margin: [40,20] }],
+        content: [
+            {text: "Stephans Transport i Staffanstorp", bold: "True", fontSize: "30"},
+            {text: `${sendListtmp[0].customerName}`},
+            {text: `${sendListtmp[0].customerAddress}`},
+            {text: `${sendListtmp[0].customerCity}`},
+            {text: `${sendListtmp[0].customerContact}`},
+        
+        ] 
+    }
+    pdfMake.createPdf(docDefinition).open()
+    
 }
 
 
@@ -282,16 +297,14 @@ function resetFields() {
     $(".sum").val("")
     $("#comments").val("")
     $("#payTime").val("")
+
 }
 
-function make_pdf(data) {
-
-    pdfMake.createPdf(data).open()
-    
-}
 
 
 menuAdd();
 clickFunctionality();
+
+
 
 // Grattis på 60-årsdagen pappa!
