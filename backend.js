@@ -1,6 +1,9 @@
 const express = require('express');
 const path = require('path');
 const sqlite3 = require('sqlite3').verbose();
+const pdfMake = require('pdfmake/build/pdfmake.js');
+const vfs_fonts = require('pdfmake/build/vfs_fonts.js');
+
 
 const app = express();
 const port = 3000;
@@ -26,11 +29,8 @@ app.get("/products",(res,req)=>{
 
 
 
-
-
 app.listen(port, () =>{
     console.log(`Listens on port: ${port}`)
 })
-
 
 
