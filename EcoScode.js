@@ -44,7 +44,7 @@ let p_listtmp = [{
     productName: "Schampo",
     amount: 2,
     hours: 5,
-    price: 500,
+    price: 50000,
     VAT: 25
  },
  { 
@@ -52,7 +52,7 @@ let p_listtmp = [{
     productName: "Annat",
     amount: 2,
     hours: 5,
-    price: 500,
+    price: 5000,
     VAT: 25,
  }]
 
@@ -60,9 +60,10 @@ let p_listtmp = [{
 
 let sendListtmp = [
 
-    {customerName: "Företaget",
-    customerAddress: "Gatan",
-    customerCity: "Staden",
+    {customerName: "Företaget AB",
+    customerAddress: "Gatan XX",
+    zipCode: "123 45",
+    customerCity: "STADEN",
     customerContact: "Personen"}
 ]
 
