@@ -37,6 +37,7 @@ let totals = []
 
 let sendList = []
 
+let additionalsList = []
 
 
 let p_listtmp = [{ 
@@ -45,7 +46,7 @@ let p_listtmp = [{
     amount: 2,
     hours: 5,
     price: 50000,
-    VAT: 25
+    VAT: 0.25
  },
  { 
     productId: 23,
@@ -53,7 +54,7 @@ let p_listtmp = [{
     amount: 2,
     hours: 5,
     price: 5000,
-    VAT: 25,
+    VAT: 0.25,
  }]
 
 
@@ -185,9 +186,9 @@ function addRow(){
              <input type="text" name="price" class="price" placeholder="Pris" >
              <select>
                  <option value="VAT">Moms</option>
-                 <option value="25">25%</option>
-                 <option value="12">12%</option>
-                 <option value="6">6%</option>
+                 <option value="0.25">25%</option>
+                 <option value="0.12">12%</option>
+                 <option value="0.06">6%</option>
              </select>
               <input type="text" name="total" class="sum" placeholder="Total">
               <a class="plus">+</a>
@@ -255,8 +256,8 @@ function getProductDetails(){
     let comment = $("#comments").val()
     let payDay = $("#payTime").val()
 
-    let additional = { comment: comment }
-    sendList.push(additional)
+    let additional = { comment: "comment", payDay: "payDay" }
+    additionalsList.push(additional)
 
 }
 

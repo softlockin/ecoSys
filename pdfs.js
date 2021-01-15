@@ -14,18 +14,19 @@ function make_pdf() {
       let docDefinition = {
   
           // Header
-          header: [{text: "Faktura", margin: [60,25] }],
+            header: [{text: "Faktura", margin: [73,25] }],
           // Main content - Customer and Owner details
-          content: [
+            content: [
                     // Headline
-                      {margin: [30,38], text: `${owner_details.companyName}`, bold: "True", fontSize: "30"},
+                      {margin: [30,8], text: `${owner_details.companyName}`, bold: "True", fontSize: "30"},
+                      //{margin: [30,0], text: `Faktura`, fontSize: "12"},                      
                       // 
                       { columns: [
                               {style: "address",
                               text: `${sendListtmp[0].customerName}
                                       ${sendListtmp[0].customerAddress}
                                       ${sendListtmp[0].zipCode}
-                                      ${sendListtmp[0].customerCity}
+                                      ${sendListtmp[0].customerCity.toUpperCase()}
 
                                       Er referens: ${sendListtmp[0].customerContact} \n `},
                               
@@ -33,7 +34,7 @@ function make_pdf() {
                                       text: `${owner_details.companyName}
                                       ${owner_details.address}
                                       ${owner_details.zipCode}
-                                      ${owner_details.city}
+                                      ${owner_details.city.toUpperCase()}
 
                                       Vår referens: ${owner_details.owner}` }    
                                   ]
@@ -52,7 +53,9 @@ function make_pdf() {
         styles: {
                   address: { margin: [45,25,0,40] },
                   product_list: { alignment: "justify", margin: [45,2], width: "300", fontSize: "10" },
-                  totals: { margin: [364,50,40,0],bold: true },
+                  totals: { margin: [280,50,70,0], alignment: "right" },
+                  additionals: { margin: [45,20,0,0] },
+                  OCR: {margin: [45,60,0,0], bold: true},
                   foot: { fontSize: "10" }
               }
           }                       
@@ -72,30 +75,52 @@ function make_pdf() {
         
         // Append products to list of products
         let sum_total = 0
+
         for (let i = 0; i<p_listtmp.length; i++ ){
 
             let amount = p_listtmp[i].amount
             let hours = p_listtmp[i].hours
             let price = p_listtmp[i].price
-            let total = amount*hours*price
+            let VAT = p_listtmp[i].VAT
+            let VAT_show = p_listtmp[i].VAT*100
+            let total = amount*hours*price*(VAT+1)
             sum_total += total
 
             docDefinition.content.push({
                 style: "product_list",
                 columns: [`Art.nr.   ${p_listtmp[i].productId}`, `${p_listtmp[i].productName}`, `${p_listtmp[i].amount}`,
-                        ` ${p_listtmp[i].hours} h`,`${p_listtmp[i].price.toLocaleString("se-SE")}:-`,`${p_listtmp[i].VAT}%`, total.toLocaleString("se-SE") +":-"]
+                        ` ${p_listtmp[i].hours} h`,price +":-",VAT_show+"%", total.toLocaleString("se-SE") +":-"]
                   })
               }
 
 
+              // Additionals row
+              docDefinition.content.push(
+
+                { 
+                    style: "additionals",
+                    text: `${additionalsList[0].comment}`
+                 }
+
+              )
+
         // Total sum of all products
+        let VAT = p_listtmp[0].VAT*100
         docDefinition.content.push(
             {
                 style: "totals",
-                text: "Totalt: "+ sum_total.toLocaleString('se-SE')
+                text: "Totalt: "+ sum_total.toLocaleString('se-SE')+":- \n"+`varav moms (${VAT}%): `+(sum_total*0.20).toLocaleString("se-SE")+":-"
             }
         )
-            
+        
+
+        docDefinition.content.push(
+
+            {
+                style: "OCR",
+                text: "OCR: 123456 \n" + "Clr.nr: 1234 \n " + "BG: \n " + "Bank: Banken AB \n" + "Betalningsvillkor: " + `${additionalsList[0].payDay} dagar`
+            }
+        )
         
             
             
