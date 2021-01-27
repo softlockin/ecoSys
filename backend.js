@@ -4,6 +4,8 @@ const sqlite3 = require('sqlite3').verbose();
 const pdfMake = require('pdfmake/build/pdfmake.js');
 const vfs_fonts = require('pdfmake/build/vfs_fonts.js');
 
+const ownerFile = require('fs').open('ownerDetails.json')
+
 
 const app = express();
 const port = 3000;
