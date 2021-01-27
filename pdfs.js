@@ -42,7 +42,7 @@ function make_pdf() {
                           ],
 
         // Footer details
-        footer: [{ style: "foot", columns: [ { alignment: "center", text: "Test"},{ alignment: "center", text:"Test2"},{alignment: "center", text: "test3"} ] }],
+        footer: [{ style: "foot", columns: [ { alignment: "center", text: "Test"},{ alignment: "center", text:"Innehar F-skatt"},{alignment: "center", text: "Reg.Nr: 123456-1234"} ] }],
         
 
 

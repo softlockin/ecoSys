@@ -55,6 +55,21 @@ let p_listtmp = [{
     hours: 5,
     price: 5000,
     VAT: 0.25,
+ },{ 
+    productId: 23,
+    productName: "Schampo",
+    amount: 2,
+    hours: 5,
+    price: 50000,
+    VAT: 0.25
+ },
+ { 
+    productId: 23,
+    productName: "Annat",
+    amount: 2,
+    hours: 5,
+    price: 5000,
+    VAT: 0.25,
  }]
 
 
