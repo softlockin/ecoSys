@@ -17,8 +17,7 @@
   "homepage": "https://github.com/cfossto/ecoSys#readme",
   "dependencies": {
     "express": "^4.17.1",
-    "pdfmake": "^0.1.69",
-    "sqlite3": "^5.0.0"
+    "pdfmake": "^0.1.69"
   },
   "devDependencies": {},
   "description": ""
