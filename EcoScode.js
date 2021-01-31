@@ -1,3 +1,6 @@
+od = $.getJSON("./ownerDetails.json")
+
+
 let products = [
     
     { 

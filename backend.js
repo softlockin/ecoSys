@@ -3,19 +3,31 @@ const path = require('path');
 const sqlite3 = require('sqlite3').verbose();
 const pdfMake = require('pdfmake/build/pdfmake.js');
 const vfs_fonts = require('pdfmake/build/vfs_fonts.js');
+const fs = require('fs');
 
 
 const app = express();
 const port = 3000;
 
 
-app.use(express.static(__dirname))
+//app.use(express.static(__dirname))
+
+app.use(express.static("./"))
+app.listen(port,()=>{
+    console.log(`Listens on: ${port}`)
+})
 
 
-app.get("/", (res,req)=> {
+
+/*
+
+app.get("/index", (res,req)=> {
 
     req.sendFile("/index.html", {root: __dirname});
 })
+
+
+
 
 app.get("/customers",(res,req)=>{
 
@@ -32,3 +44,6 @@ app.get("/products",(res,req)=>{
 app.listen(port, () =>{
     console.log(`Listens on port: ${port}`)
 })
+
+
+*/
