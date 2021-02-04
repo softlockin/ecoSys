@@ -5,45 +5,22 @@ const pdfMake = require('pdfmake/build/pdfmake.js');
 const vfs_fonts = require('pdfmake/build/vfs_fonts.js');
 const fs = require('fs');
 
-
 const app = express();
 const port = 3000;
 
+const rawdata = fs.readFileSync("./ownerDetails.json")
+const pappa = JSON.parse(rawdata)
+
 
 //app.use(express.static(__dirname))
-
 app.use(express.static("./"))
+
+app.get("/data",(req,res)=>{
+    res.json(pappa)
+})
+
+
+
 app.listen(port,()=>{
     console.log(`Listens on: ${port}`)
 })
-
-
-
-/*
-
-app.get("/index", (res,req)=> {
-
-    req.sendFile("/index.html", {root: __dirname});
-})
-
-
-
-
-app.get("/customers",(res,req)=>{
-
-    req.sendFile("/customers.html",{root:__dirname});
-})
-
-app.get("/products",(res,req)=>{
-
-    req.sendFile("/products.html",{root:__dirname});
-})
-
-
-
-app.listen(port, () =>{
-    console.log(`Listens on port: ${port}`)
-})
-
-
-*/

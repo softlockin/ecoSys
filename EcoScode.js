@@ -1,4 +1,5 @@
-od = $.getJSON("./ownerDetails.json")
+
+
 
 
 let products = [
@@ -42,7 +43,7 @@ let sendList = []
 
 let additionalsList = []
 
-
+/*
 let p_listtmp = [{ 
     productId: 23,
     productName: "Schampo",
@@ -76,7 +77,6 @@ let p_listtmp = [{
  }]
 
 
-
 let sendListtmp = [
 
     {customerName: "Företaget AB",
@@ -96,7 +96,7 @@ let owner_details = {
     city: "Staffanstorp"
 
 }
-
+*/
 
 function menuAdd(){
 
@@ -339,6 +339,7 @@ function resetFields() {
 menuAdd();
 clickFunctionality();
 
+fetch("/data").then(response => response.json()).then(data => companyDetails = data.owner)
 
 
 // Grattis på 60-årsdagen pappa!

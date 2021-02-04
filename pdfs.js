@@ -18,7 +18,7 @@ function make_pdf() {
           // Main content - Customer and Owner details
             content: [
                     // Headline
-                      {margin: [30,8], text: `${owner_details.companyName}`, bold: "True", fontSize: "30"},
+                      {margin: [30,8], text: `${companyDetails.companyName}`, bold: "True", fontSize: "30"},
                       //{margin: [30,0], text: `Faktura`, fontSize: "12"},                      
                       // 
                       { columns: [
@@ -31,12 +31,12 @@ function make_pdf() {
                                       Er referens: ${sendListtmp[0].customerContact} \n `},
                               
                                       {style: "address",
-                                      text: `${owner_details.companyName}
-                                      ${owner_details.address}
-                                      ${owner_details.zipCode}
-                                      ${owner_details.city.toUpperCase()}
+                                      text: `${companyDetails.companyName}
+                                      ${companyDetails.address}
+                                      ${companyDetails.zipCode}
+                                      ${companyDetails.city.toUpperCase()}
 
-                                      Vår referens: ${owner_details.owner}` }    
+                                      Vår referens: ${companyDetails.referenceName}` }    
                                   ]
                               }
                           ],
