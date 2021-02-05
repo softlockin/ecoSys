@@ -18,17 +18,17 @@ function make_pdf() {
           // Main content - Customer and Owner details
             content: [
                     // Headline
-                      {margin: [30,8], text: `${companyDetails.companyName}`, bold: "True", fontSize: "30"},
+                      {margin: [30,8], text: `${sendList[0].customerName}`, bold: "True", fontSize: "30"},
                       //{margin: [30,0], text: `Faktura`, fontSize: "12"},                      
                       // 
                       { columns: [
                               {style: "address",
-                              text: `${sendListtmp[0].customerName}
-                                      ${sendListtmp[0].customerAddress}
-                                      ${sendListtmp[0].zipCode}
-                                      ${sendListtmp[0].customerCity.toUpperCase()}
+                              text: `${sendList[0].customerName}
+                                      ${sendList[0].customerAddress}
+                                      ${sendList[0].zip}
+                                      ${sendList[0].city.toUpperCase()}
 
-                                      Er referens: ${sendListtmp[0].customerContact} \n `},
+                                      Er referens: ${sendList[0].customerContact} \n `},
                               
                                       {style: "address",
                                       text: `${companyDetails.companyName}
@@ -42,7 +42,8 @@ function make_pdf() {
                           ],
 
         // Footer details
-        footer: [{ style: "foot", columns: [ { alignment: "center", text: "Test"},{ alignment: "center", text:"Innehar F-skatt"},{alignment: "center", text: "Reg.Nr: 123456-1234"} ] }],
+        footer: [{ style: "foot", columns: [ { alignment: "center", text: `${companyDetails.companyName}\n${companyDetails.address}\n${companyDetails.zipCode} ${companyDetails.city.toUpperCase()}`},
+        { alignment: "center", text:"Innehar F-skatt"},{alignment: "center", text: `Reg.Nr: ${companyDetails.companyRegistrationNumber}\n Banknr.${companyDetails.accountNumber}\n${companyDetails.bank}`} ] }],
         
 
 
@@ -52,11 +53,11 @@ function make_pdf() {
         /* *** MAIN STYLING SECTION *** */ 
         styles: {
                   address: { margin: [45,25,0,40] },
-                  product_list: { alignment: "justify", margin: [45,2], width: "300", fontSize: "10" },
+                  product_list: { /*alignment: "justify",*/ margin: [45,2], width: "120", fontSize: "10" },
                   totals: { margin: [280,50,70,0], alignment: "right" },
                   additionals: { margin: [45,20,0,0] },
                   OCR: {margin: [45,60,0,0], bold: true},
-                  foot: { fontSize: "10" }
+                  foot: { fontSize: "8" }
               }
           }                       
           /* *** MAIN STYLING SECTION END *** */
@@ -76,20 +77,20 @@ function make_pdf() {
         // Append products to list of products
         let sum_total = 0
 
-        for (let i = 0; i<p_listtmp.length; i++ ){
+        for (let i = 1; i<sendList.length; i++ ){
 
-            let amount = p_listtmp[i].amount
-            let hours = p_listtmp[i].hours
-            let price = p_listtmp[i].price
-            let VAT = p_listtmp[i].VAT
-            let VAT_show = p_listtmp[i].VAT*100
+            let amount = sendList[i].amount
+            let hours = sendList[i].hours
+            let price = sendList[i].price
+            let VAT = sendList[i].VAT
+            let VAT_show = sendList[i].VAT*100
             let total = amount*hours*price*(VAT+1)
             sum_total += total
 
             docDefinition.content.push({
                 style: "product_list",
-                columns: [`Art.nr.   ${p_listtmp[i].productId}`, `${p_listtmp[i].productName}`, `${p_listtmp[i].amount}`,
-                        ` ${p_listtmp[i].hours} h`,price +":-",VAT_show+"%", total.toLocaleString("se-SE") +":-"]
+                columns: [`${sendList[i].productName}`, `${sendList[i].amount}`,
+                        ` ${sendList[i].hours} h`,price +":-",VAT_show+"%", total.toLocaleString("se-SE") +":-"]
                   })
               }
 
@@ -105,7 +106,7 @@ function make_pdf() {
               )
 
         // Total sum of all products
-        let VAT = p_listtmp[0].VAT*100
+        let VAT = sendList[1].VAT*100
         docDefinition.content.push(
             {
                 style: "totals",
@@ -118,7 +119,7 @@ function make_pdf() {
 
             {
                 style: "OCR",
-                text: "OCR: 123456 \n" + "Clr.nr: 1234 \n " + "BG: \n " + "Bank: Banken AB \n" + "Betalningsvillkor: " + `${additionalsList[0].payDay} dagar`
+                text: `OCR: OCRTEST \n Clr.nr: ${companyDetails.clearingNumber} \n  BG: ${companyDetails.accountNumber} \n Bank: ${companyDetails.bank} \n Betalningsvillkor: dagar`
             }
         )
         

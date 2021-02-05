@@ -286,6 +286,7 @@ function getAllCustomerDetails() {
     let customerName = $("#customerName").val()
     let customerContact = $("#customerContactName").val()
     let customerAddress = $("#customerStreetAddress").val()
+    let zipCode = $("#zip").val()
     let city = $("#customerCity").val()
     let customerId = $("#customerId").val()
     let betalningsvillkor = $("#payTime").val()
@@ -294,6 +295,7 @@ function getAllCustomerDetails() {
         customerName: customerName,
         customerContact: customerContact,
         customerAddress: customerAddress,
+        zip: zipCode,
         city: city,
         customerId: customerId,
         betalningsvillkor: betalningsvillkor
@@ -317,10 +319,12 @@ function invoiceClick(){
 
 function resetFields() {
 
+    /*
     // Reset fields
     $("#customerName").val("")
     $("#customerContactName").val("")
     $("#customerStreetAddress").val("")
+    $("#zip").val("")
     $("#customerCity").val("")
     $("#customerId").val("")
     $(".productName").val("")
@@ -330,7 +334,7 @@ function resetFields() {
     $(".sum").val("")
     $("#comments").val("")
     $("#payTime").val("")
-
+*/
 
 }
 
