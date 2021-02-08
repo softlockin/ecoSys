@@ -18,9 +18,7 @@ function make_pdf() {
           // Main content - Customer and Owner details
             content: [
                     // Headline
-                      {margin: [30,8], text: `${sendList[0].customerName}`, bold: "True", fontSize: "30"},
-                      //{margin: [30,0], text: `Faktura`, fontSize: "12"},                      
-                      // 
+                      {margin: [45,28], text: `${companyDetails.companyName}`, bold: "True", fontSize: "30"},
                       { columns: [
                               {style: "address",
                               text: `${sendList[0].customerName}
@@ -43,7 +41,7 @@ function make_pdf() {
 
         // Footer details
         footer: [{ style: "foot", columns: [ { alignment: "center", text: `${companyDetails.companyName}\n${companyDetails.address}\n${companyDetails.zipCode} ${companyDetails.city.toUpperCase()}`},
-        { alignment: "center", text:"Innehar F-skatt"},{alignment: "center", text: `Reg.Nr: ${companyDetails.companyRegistrationNumber}\n Banknr.${companyDetails.accountNumber}\n${companyDetails.bank}`} ] }],
+        { alignment: "center", text:`\nInnehar F-skatt\n Reg.Nr: ${companyDetails.companyRegistrationNumber}\n `},{alignment: "center", text: `\nBanknr.${companyDetails.accountNumber}\n${companyDetails.bank}`} ] }],
         
 
 
@@ -53,7 +51,7 @@ function make_pdf() {
         /* *** MAIN STYLING SECTION *** */ 
         styles: {
                   address: { margin: [45,25,0,40] },
-                  product_list: { /*alignment: "justify",*/ margin: [45,2], width: "120", fontSize: "10" },
+                  product_list: { alignment: "justify", margin: [45,2], width: 120 },
                   totals: { margin: [280,50,70,0], alignment: "right" },
                   additionals: { margin: [45,20,0,0] },
                   OCR: {margin: [45,60,0,0], bold: true},
@@ -84,13 +82,13 @@ function make_pdf() {
             let price = sendList[i].price
             let VAT = sendList[i].VAT
             let VAT_show = sendList[i].VAT*100
-            let total = amount*hours*price*(VAT+1)
+            let total = (amount*hours*price)*1.25
             sum_total += total
 
             docDefinition.content.push({
                 style: "product_list",
-                columns: [`${sendList[i].productName}`, `${sendList[i].amount}`,
-                        ` ${sendList[i].hours} h`,price +":-",VAT_show+"%", total.toLocaleString("se-SE") +":-"]
+                columns: [{ width: 120, text: `${sendList[i].productId}`}, {text: `${sendList[i].amount}`},
+                        {text:` ${sendList[i].hours} h`},{text: price +":-"},{text: VAT_show+"%"}, {text: total.toLocaleString() +":-"}]
                   })
               }
 
@@ -110,7 +108,7 @@ function make_pdf() {
         docDefinition.content.push(
             {
                 style: "totals",
-                text: "Totalt: "+ sum_total.toLocaleString('se-SE')+":- \n"+`varav moms (${VAT}%): `+(sum_total*0.20).toLocaleString("se-SE")+":-"
+                text: "Totalt: "+ sum_total.toLocaleString()+":- \n"+`varav moms (${VAT}%): `+(sum_total*0.20).toLocaleString()+":-"
             }
         )
         
@@ -119,7 +117,7 @@ function make_pdf() {
 
             {
                 style: "OCR",
-                text: `OCR: OCRTEST \n Clr.nr: ${companyDetails.clearingNumber} \n  BG: ${companyDetails.accountNumber} \n Bank: ${companyDetails.bank} \n Betalningsvillkor: dagar`
+                text: `OCR: OCRTEST \n BG: ${companyDetails.accountNumber} \n Bank: ${companyDetails.bank} \n Betalningsvillkor: ${additionalsList[0].payDay} dagar`
             }
         )
         

@@ -68,8 +68,6 @@ function setProductDetails(){
 
 }
 
-
-
 // Chose from the list and generate the right details
 function getCustomerDetails(){
 
@@ -181,7 +179,7 @@ function getProductDetails(){
     let comment = $("#comments").val()
     let payDay = $("#payTime").val()
 
-    let additional = { comment: "comment", payDay: "payDay" }
+    let additional = { comment: comment, payDay: payDay }
     additionalsList.push(additional)
 
 }
@@ -242,15 +240,19 @@ function resetFields() {
     $("#comments").val("")
     $("#payTime").val("")
 */
+    sendList = []
 
+}
+
+async function getOwnerData() {
+    await fetch("/data").then(response => response.json()).then(data => companyDetails = data.owner)
+    return companyDetails
 }
 
 
 
 menuAdd();
 clickFunctionality();
-
-fetch("/data").then(response => response.json()).then(data => companyDetails = data.owner)
-
+getOwnerData();
 
 // Grattis på 60-årsdagen pappa!
