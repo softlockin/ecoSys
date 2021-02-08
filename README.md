@@ -8,7 +8,7 @@ EcoSys is currently directed to a Swedish market with Swedish VAT-structures. If
 
 At the moment, this is just an MVP, but will be updated to accompany more flexible VAT-structures, more languages, database support and reusability in larger contexts.
 
-This project is a challenge to myself to only use vanilla Javascript and Node, to train and further my skills in JS. There are some parts of jQuery in the mix, just to solve problems that would be unfathomably complex and time consuming in Vanilla JS. Sure, all of this would've been easier to implement in VUE or React, but this is not our goal here..
+This project started as a challenge to myself to only use vanilla Javascript and Node, to train and further my skills in JS. There are some parts of jQuery in the mix, just to solve problems that would be unfathomably complex and time consuming in Vanilla JS. Sure, all of this would've been easier to implement in VUE or React, but this is not our goal here..
 
 ## Techniques used:
 
