@@ -2,7 +2,7 @@
 
 *(This system is still in development..)*
 
-**EcoSys** is an invoice-app for the webb written fully in Javascript. It takes user in-data and transforms it to a customized PDF that you can print. EcoSys does all the calculations of units, amount, VAT and totals (with and without VAT). The only thing you need to do is to push a + button to add a new row to the PDF.
+**EcoSys** is an invoice-app for the webb written fully in Javascript. It takes user in-data and transforms it to a customized PDF that you can print. EcoSys does all the calculations of units, amount, VAT and totals (with and without VAT). It also puts your company contacts in the most logic places and generates a OCR that is unique to the invoice. The only thing you need to do is to push a + button to add a new row to the PDF.
 
 EcoSys is currently directed to a Swedish market with Swedish VAT-structures. If you have the expertise in another tax-structure in another country, please contact me so that we can make this app more international.
 
@@ -36,4 +36,4 @@ To use this app, you will need to have Node installed.
 5. In a browser, type: "localhost:3000"
 6. You should now see the EcoSys running in your browser. Congratulations!
 
-Of course, this process will be smoother in the future. The desktop version of this app will run out of the box in Windows and OSx. Very soon, this system will be hosted on a webbserver, usage free of charge. Until then, you may NOT redistribute, copy, change or sell this product without my consent.
+Of course, this process will be smoother in the future as it will be hosted online. The desktop version of this app will run out of the box in Windows and OSx. Very soon, this system will be hosted on a webbserver, usage free of charge. Until then, you may NOT redistribute, copy, change or sell this product without my consent.
