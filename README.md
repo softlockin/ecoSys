@@ -37,3 +37,5 @@ To use this app, you will need to have Node installed.
 6. You should now see the EcoSys running in your browser. Congratulations!
 
 Of course, this process will be smoother in the future as it will be hosted online. The desktop version of this app will run out of the box in Windows and OSx. Very soon, this system will be hosted on a webbserver, usage free of charge. Until then, you may NOT redistribute, copy, change or sell this product without my consent.
+
+*Disclaimer: Remember that you, solely and alone, is responsible for your economic choices. It is your responsibility to check that your invoice is correct and the calculations are true. By using this app, you acknowledge this fact.*
