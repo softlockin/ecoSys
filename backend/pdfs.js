@@ -8,6 +8,13 @@ pdfMake.fonts = {
 }
 
 
+function makeOcr(){
+    number = Date.now().toString()
+    OCR = number.slice(-6)
+    return OCR
+}
+
+makeOcr()
 
 function make_pdf() {
 
@@ -117,7 +124,7 @@ function make_pdf() {
 
             {
                 style: "OCR",
-                text: `OCR: OCRTEST \n BG: ${companyDetails.accountNumber} \n Bank: ${companyDetails.bank} \n Betalningsvillkor: ${additionalsList[0].payDay} dagar`
+                text: `OCR: ${OCR} \n BG: ${companyDetails.accountNumber} \n Bank: ${companyDetails.bank} \n Betalningsvillkor: ${additionalsList[0].payDay} dagar`
             }
         )
         

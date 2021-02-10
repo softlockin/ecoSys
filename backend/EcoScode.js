@@ -110,10 +110,10 @@ function addRow(){
              <select>
                  <option value="VAT">Moms</option>
                  <option value="0.25">25%</option>
-                 <option value="0.12">12%</option>
-                 <option value="0.06">6%</option>
+                 <!-- <option value="0.12">12%</option>
+                 <option value="0.06">6%</option> -->
              </select>
-              <input type="text" name="total" class="sum" placeholder="Total">
+              <!-- <input type="text" name="total" class="sum" placeholder="Total"> -->
               <a class="plus">+</a>
               <a class="minus">-</a></div>
 
@@ -224,7 +224,7 @@ function invoiceClick(){
 
 function resetFields() {
 
-    /*
+    
     // Reset fields
     $("#customerName").val("")
     $("#customerContactName").val("")
@@ -239,7 +239,7 @@ function resetFields() {
     $(".sum").val("")
     $("#comments").val("")
     $("#payTime").val("")
-*/
+
     sendList = []
 
 }

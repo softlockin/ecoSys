@@ -30,3 +30,5 @@ header {  display: flex; flex-direction: row; justify-content:space-evenly; back
 
 
 #doBtn { margin-top: 5%; }
+
+footer { margin-left: 20%; margin-top: 8%; font-size: x-small; }

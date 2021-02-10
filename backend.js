@@ -9,7 +9,7 @@ const app = express();
 const port = 3000;
 
 const rawdata = fs.readFileSync("ownerDetails.json")
-const pappa = JSON.parse(rawdata)
+const owner = JSON.parse(rawdata)
 
 
 //app.use(express.static(__dirname))
@@ -18,7 +18,7 @@ app.use(express.static("./frontend"))
 app.use(express.static("./backend"))
 
 app.get("/data",(req,res)=>{
-    res.json(pappa)
+    res.json(owner)
 })
 
 
