@@ -107,7 +107,7 @@ function addRow(){
              <input type="text" name="antal" class="amount" placeholder="Antal">
              <input type="text" name="hours" class="hours" placeholder="Timmar">
              <input type="text" name="price" class="price" placeholder="Pris" >
-             <select>
+             <select class="moms>
                  <option value="VAT">Moms</option>
                  <option value="0.25">25%</option>
                  <!-- <option value="0.12">12%</option>

@@ -6,7 +6,7 @@ const vfs_fonts = require('pdfmake/build/vfs_fonts.js');
 const fs = require('fs');
 
 const app = express();
-const port = 3000;
+const port = process.env.port || 3000;
 
 const rawdata = fs.readFileSync("ownerDetails.json")
 const owner = JSON.parse(rawdata)

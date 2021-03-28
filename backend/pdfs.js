@@ -10,7 +10,7 @@ pdfMake.fonts = {
 
 function makeOcr(){
     number = Date.now().toString()
-    OCR = number.slice(-6)
+    OCR = number.slice(-4)
     return OCR
 }
 
