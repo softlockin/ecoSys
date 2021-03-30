@@ -1,10 +1,10 @@
-let totals = []
+let totals = [] // production use
 
 let sendList = [] // active list for sending data to pdfs
 
-let additionalsList = []
+let additionalsList = [] // comments and payday
 
-let mobile_list = []
+let mobile_list = [] // mobile temporary list
 
 
 function menuAdd(){
@@ -220,17 +220,17 @@ function invoiceClick(){
     if (window.innerWidth > 600){
     getAllCustomerDetails();
     getProductDetails();
-    
+    make_pdf()
+    resetFields()
     }
     else{
 
     getAllCustomerDetails();
     mobileProducts();
     //getProductDetails();
-    }
-
     make_pdf()
-    resetFields()
+    resetproducts()
+    }
 }
 
 
@@ -246,10 +246,11 @@ function resetFields() {
     $("#customerCity").val("")
     $("#customerId").val("")
     $(".productName").val("")
-    $(".amount").val("")
-    $(".hours").val("")
-    $(".price").val("")
-    $(".sum").val("")
+    // $(".amount").val("")
+    // $(".hours").val("")
+    // $(".price").val("")
+    // $(".sum").val("")
+    resetproducts()
     $("#comments").val("")
     $("#payTime").val("")
 
@@ -257,6 +258,14 @@ function resetFields() {
     additionalsList = []
 
 }
+
+function resetproducts(){
+    $(".amount").val("")
+    $(".hours").val("")
+    $(".price").val("")
+    $(".sum").val("")
+}
+
 
 async function getOwnerData() {
     await fetch("/data").then(response => response.json()).then(data => companyDetails = data.owner)
@@ -281,7 +290,21 @@ function mobileField(){
 
     mobile_list.push(obj2)
 
-    mobileField.insertAdjacentHTML("beforeend",` <p class='mobile-things'> ${productName}</p> `)
+    mobileField.insertAdjacentHTML("beforeend",` <p class='mobile-things'> ${productName}<span class="rm-mobile">  <b>X</b></span></p> `)
+}
+
+
+// Delete function for mobile
+// To fix: Remove from obj2 when element is removed.
+function mobileDelete(){
+
+    $(document).on("click",".rm-mobile", ()=>{
+
+        let elem = $(event.target)
+        elem.parent().parent().remove()
+        resetproducts()
+    })
+
 }
 
 function mobileProducts() {
@@ -305,6 +328,7 @@ function mobileProducts() {
 
 menuAdd();
 clickFunctionality();
+mobileDelete();
 getOwnerData();
 
 // Grattis på 60-årsdagen pappa!

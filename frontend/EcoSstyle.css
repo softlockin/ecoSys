@@ -8,7 +8,7 @@ a, a:hover { font-size:xx-large; text-decoration: underline; font-weight: bold; 
 a:hover { color: red; }
 
 
-h1 { margin-left: 10%; color: white;}
+h1 { margin-left: 5%; color: white;}
 
 
 header {  display: flex; flex-direction: row; justify-content:space-evenly; background-color:rgb(53, 120, 143); background-blend-mode: difference; }
@@ -32,6 +32,7 @@ header {  display: flex; flex-direction: row; justify-content:space-evenly; back
 #comments { width: 48%; height: 80px; }
 
 .mobile-list { display: none; }
+.rm-mobile { display: none; }
 
 #doBtn { margin-top: 5%; }
 
@@ -46,7 +47,7 @@ footer { margin-left: 20%; margin-top: 8%; font-size: x-small; }
     a:hover { color: red; }
 
 
-    h1 { margin-left: 10%; color: white;}
+    h1 { margin-left: 10%; color: white; font-size: larger; }
 
 
     header {  display: flex; flex-direction: row; justify-content:space-evenly; background-color:rgb(53, 120, 143); background-blend-mode: difference; }
@@ -59,6 +60,7 @@ footer { margin-left: 20%; margin-top: 8%; font-size: x-small; }
 
     .mobile-list { display: inline; }
     .mobile-things { font-size: small; }
+    .rm-mobile { display: inline; cursor: pointer; }
     
     .plusDiv { display: flex; flex-direction:column; }
 
@@ -68,7 +70,7 @@ footer { margin-left: 20%; margin-top: 8%; font-size: x-small; }
     .price { width: 15em; }
     .moms { width: 15em;}
     .sum { width: 15em; }
-    .plus, .plus:hover, .minus, .minus:hover { cursor: pointer; color: black; text-decoration: none; font-size: medium; }
+    .plus, .plus:hover, .minus, .minus:hover { cursor: pointer; color: black; text-decoration: none; }
 
     .textarea { margin-top: 3%; }
 
