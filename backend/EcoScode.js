@@ -276,7 +276,7 @@ function mobileField(){
             amount: parseInt(amount),
             hours: parseInt(hours),
             price: parseInt(price),
-            VAT: parseInt(vat)    
+            VAT: parseFloat(vat)    
     }
 
     mobile_list.push(obj2)
@@ -287,7 +287,7 @@ function mobileField(){
 function mobileProducts() {
 
     for (list of mobile_list){
-        sendList.push(mobile_list)
+        sendList.push(list)
     }
 
     let comment = $("#comments").val()
