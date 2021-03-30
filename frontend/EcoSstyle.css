@@ -31,6 +31,7 @@ header {  display: flex; flex-direction: row; justify-content:space-evenly; back
 
 #comments { width: 48%; height: 80px; }
 
+.mobile-list { display: none; }
 
 #doBtn { margin-top: 5%; }
 
@@ -56,6 +57,9 @@ footer { margin-left: 20%; margin-top: 8%; font-size: x-small; }
 
     .customerDetails { display: flex; flex-direction: column; width: 15em; }
 
+    .mobile-list { display: inline; }
+    .mobile-things { font-size: small; }
+    
     .plusDiv { display: flex; flex-direction:column; }
 
 

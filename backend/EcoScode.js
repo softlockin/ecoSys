@@ -1,8 +1,10 @@
 let totals = []
 
-let sendList = []
+let sendList = [] // active list for sending data to pdfs
 
 let additionalsList = []
+
+let mobile_list = []
 
 
 function menuAdd(){
@@ -98,6 +100,7 @@ function addRow(){
 
     let rows = document.querySelectorAll(".plusDiv")
 
+    if (window.innerWidth > 600){
         for (let row of rows){
 
             row.insertAdjacentHTML("beforeend",`
@@ -107,7 +110,7 @@ function addRow(){
              <input type="text" name="antal" class="amount" placeholder="Antal">
              <input type="text" name="hours" class="hours" placeholder="Timmar">
              <input type="text" name="price" class="price" placeholder="Pris" >
-             <select class="moms>
+             <select class="moms">
                  <option value="VAT">Moms</option>
                  <option value="0.25">25%</option>
                  <!-- <option value="0.12">12%</option>
@@ -119,6 +122,7 @@ function addRow(){
 
         `)
         break
+        }
     }
 }
 
@@ -142,6 +146,7 @@ function clickFunctionality() {
     
     $(document).on('click',".plus", function(){
         addRow();
+        mobileField();
     })
 
     deleteRow()
@@ -212,12 +217,20 @@ function getAllCustomerDetails() {
 
 function invoiceClick(){
 
+    if (window.innerWidth > 600){
     getAllCustomerDetails();
     getProductDetails();
     
+    }
+    else{
+
+    getAllCustomerDetails();
+    mobileProducts();
+    //getProductDetails();
+    }
+
     make_pdf()
     resetFields()
-
 }
 
 
@@ -241,6 +254,7 @@ function resetFields() {
     $("#payTime").val("")
 
     sendList = []
+    additionalsList = []
 
 }
 
@@ -249,6 +263,44 @@ async function getOwnerData() {
     return companyDetails
 }
 
+
+function mobileField(){
+    let mobileField = document.querySelector(".mobile-list")
+    let productName = document.querySelector(".productName").value
+    let amount = document.querySelector(".amount").value
+    let hours = document.querySelector(".hours").value
+    let price = document.querySelector(".price").value
+    let vat = document.querySelector(".moms").value
+
+    obj2 = { productId: productName,
+            amount: parseInt(amount),
+            hours: parseInt(hours),
+            price: parseInt(price),
+            VAT: parseInt(vat)    
+    }
+
+    mobile_list.push(obj2)
+
+    mobileField.insertAdjacentHTML("beforeend",` <p class='mobile-things'> ${productName}</p> `)
+}
+
+function mobileProducts() {
+
+    for (list of mobile_list){
+        sendList.push(mobile_list)
+    }
+
+    let comment = $("#comments").val()
+    let payDay = $("#payTime").val()
+
+    let additional = { comment: comment, payDay: payDay }
+    additionalsList.push(additional)
+    
+    make_pdf()
+    resetFields()
+
+    
+}
 
 
 menuAdd();
