@@ -1,6 +1,5 @@
-# EcoSys 0.8
+# EcoSys 1.0
 
-*(This system is still in development..)*
 
 **EcoSys** is an invoice-app for the webb written fully in Javascript. It takes user in-data and transforms it to a customized PDF that you can print. EcoSys does all the calculations of units, amount, VAT and totals (with and without VAT). It also puts your company contacts in the most logic places and generates a OCR that is unique to the invoice. The only thing you need to do is to push a + button to add a new row to the PDF.
 
