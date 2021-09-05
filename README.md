@@ -31,9 +31,10 @@ To use this app, you will need to have Node installed.
 1. Download this code from Git
 2. Place the folder in a good spot.
 3. Locate that folder in a Terminal of your choice.
-4. Run: "node backend.js" in said terminal.
-5. In a browser, type: "localhost:3000"
-6. You should now see the EcoSys running in your browser. Congratulations!
+4. Run: npm install
+5. Run: "node backend.js" in said terminal.
+6. In a browser, type: "localhost:3000"
+7. You should now see the EcoSys running in your browser. Congratulations!
 
 Of course, this process will be smoother in the future as it will be hosted online. The desktop version of this app will run out of the box in Windows and OSx. Very soon, this system will be hosted on a webbserver, usage free of charge. Until then, you may NOT redistribute, copy, change or sell this product without my consent.
 
