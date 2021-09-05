@@ -29,6 +29,7 @@ function make_pdf() {
                       { columns: [
                               {style: "address",
                               text: `${sendList[0].customerName}
+                                    ${sendList[0].customerId}
                                       ${sendList[0].customerAddress}
                                       ${sendList[0].zip}
                                       ${sendList[0].city.toUpperCase()}
@@ -41,7 +42,7 @@ function make_pdf() {
                                       ${companyDetails.zipCode}
                                       ${companyDetails.city.toUpperCase()}
 
-                                      Vår referens: ${companyDetails.referenceName}` }    
+                                      \nVår referens: ${companyDetails.referenceName}` }    
                                   ]
                               }
                           ],

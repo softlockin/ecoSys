@@ -326,6 +326,7 @@ function mobileProducts() {
 }
 
 
+
 menuAdd();
 clickFunctionality();
 mobileDelete();
