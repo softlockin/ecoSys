@@ -221,7 +221,9 @@ function invoiceClick(){
     getAllCustomerDetails();
     getProductDetails();
     make_pdf()
-    resetFields()
+    //resetFields()
+    sendList = []
+    additionalsList = []
     }
     else{
 
@@ -229,10 +231,14 @@ function invoiceClick(){
     mobileProducts();
     //getProductDetails();
     make_pdf()
-    resetproducts()
+    //resetproducts()
     }
 }
 
+function resetClick(){
+    resetFields()
+    location.reload()
+}
 
 
 function resetFields() {

@@ -8,3 +8,4 @@ ownerDetails.json
 /resources
 /dist
 *.sh
+out/
