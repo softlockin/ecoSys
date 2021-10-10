@@ -1,4 +1,5 @@
 
+
 let totals = [] // production use
 
 let sendList = [] // active list for sending data to pdfs
@@ -335,14 +336,18 @@ function mobileProducts() {
 }
 
 
-function switchCustomer(customerObject){
+function switchCustomer(customerObject,indexOfChoice){
+    
+    let li = 0
+    if (indexOfChoice > 0 && indexOfChoice != 0){
+    li = indexOfChoice - 1 }
 
-    document.querySelector("#customerName").value = customerObject[0].customerName
-    document.querySelector("#customerId").value = customerObject[0].customerId
-    document.querySelector("#customerContactName").value = customerObject[0].customerContactName
-    document.querySelector("#customerStreetAddress").value = customerObject[0].customerStreetAddress
-    document.querySelector("#zip").value = customerObject[0].zip
-    document.querySelector("#customerCity").value = customerObject[0].customerCity
+    document.querySelector("#customerName").value = customerObject[li].customerName
+    document.querySelector("#customerId").value = customerObject[li].customerId
+    document.querySelector("#customerContactName").value = customerObject[li].customerContactName
+    document.querySelector("#customerStreetAddress").value = customerObject[li].customerStreetAddress
+    document.querySelector("#zip").value = customerObject[li].zip
+    document.querySelector("#customerCity").value = customerObject[li].customerCity
 
 
 };
@@ -352,14 +357,31 @@ function updateFocusedCustomer(){
 
     document.querySelector(".customerDetails").addEventListener("change", () => {
 
-        let listValue = document.querySelector("#customerListt").value
+        let listValue = document.querySelector("#customerListt").selectedIndex
+
+        console.log(listValue)
 
         let customerData = fetch("/customerData")
         .then(resp => data = resp.json())
         .then(data => {customerProfile = data;
             
-            switchCustomer(customerProfile)
+            switchCustomer(customerProfile,listValue)
         })
+    })
+
+}
+
+function getCustomersToList(){
+
+    let dropList = document.querySelector("#customerListt")
+
+    let customerData = fetch("/customerData")
+    .then(res => data = res.json())
+    .then(data => { let customerDataObject = data;
+
+        for (let entry of customerDataObject){
+            dropList.insertAdjacentHTML("beforeend",`<option>${entry.customerName}</option>`)
+        }
     })
 
 }
@@ -369,6 +391,7 @@ menuAdd();
 clickFunctionality();
 mobileDelete();
 getOwnerData();
+getCustomersToList();
 updateFocusedCustomer();
 
 
