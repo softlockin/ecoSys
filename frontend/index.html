@@ -19,6 +19,10 @@
     <div class="main">
     <div class="first">
         <section class="customerDetails">
+        <select name="customerList" id="customerListt">
+            <option value="Kund">Välj kund</option>
+            <option value="2">2</option>
+        </select>
         <h2>Kund-uppgifter</h2>
         <!-- <select name="customerList" id="customerList" class="customerList"> <option value="Välj något">Välj kund</option></select> --->
 
@@ -57,7 +61,8 @@
             <a class="plus">+</a>
         </section>
         <section class="textarea" >
-            <textarea name="Comments" id="comments" cols="30" rows="10" placeholder="Kommentarer"></textarea><br>
+            <textarea name="Comments" id="comments" cols="30" rows="10" placeholder="Kommentarer">Förfallodag:
+Vid försening tillkommer avgift om 60:-</textarea><br>
             <h2>Betalningsvillkor</h2>
             <input type="text" name="paytime" id="payTime" placeholder="Betalningsvillkor">
         </section>

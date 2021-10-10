@@ -1,3 +1,4 @@
+
 let totals = [] // production use
 
 let sendList = [] // active list for sending data to pdfs
@@ -5,6 +6,8 @@ let sendList = [] // active list for sending data to pdfs
 let additionalsList = [] // comments and payday
 
 let mobile_list = [] // mobile temporary list
+
+let focusedCustomer = []
 
 
 function menuAdd(){
@@ -332,10 +335,41 @@ function mobileProducts() {
 }
 
 
+function switchCustomer(customerObject){
+
+    document.querySelector("#customerName").value = customerObject[0].customerName
+    document.querySelector("#customerId").value = customerObject[0].customerId
+    document.querySelector("#customerContactName").value = customerObject[0].customerContactName
+    document.querySelector("#customerStreetAddress").value = customerObject[0].customerStreetAddress
+    document.querySelector("#zip").value = customerObject[0].zip
+    document.querySelector("#customerCity").value = customerObject[0].customerCity
+
+
+};
+
+function updateFocusedCustomer(){
+
+
+    document.querySelector(".customerDetails").addEventListener("change", () => {
+
+        let listValue = document.querySelector("#customerListt").value
+
+        let customerData = fetch("/customerData")
+        .then(resp => data = resp.json())
+        .then(data => {customerProfile = data;
+            
+            switchCustomer(customerProfile)
+        })
+    })
+
+}
+
 
 menuAdd();
 clickFunctionality();
 mobileDelete();
 getOwnerData();
+updateFocusedCustomer();
+
 
 // Grattis på 60-årsdagen pappa!

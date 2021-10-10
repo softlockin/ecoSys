@@ -11,6 +11,8 @@ const port = process.env.port || 3000;
 
 const rawdata = fs.readFileSync(path.join(__dirname,"ownerDetails.json"))
 const owner = JSON.parse(rawdata)
+const customerData = fs.readFileSync(path.join(__dirname,"/backend/customerDB.json"))
+const customers = JSON.parse(customerData)
 
 
 //app.use(express.static(__dirname))
@@ -22,7 +24,9 @@ app.get("/data",(req,res)=>{
     res.json(owner)
 })
 
-
+app.get("/customerData", (req,res) =>{
+    res.json(customers)
+})
 
 app.listen(port,()=>{
     console.log(`Listens on: ${port}`)
